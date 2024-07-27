@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0/">
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+			<title>Tela do Jogo</title>
+	
+		<!--BOOTSTRAP CSS-->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" type="text/css" media="all" />
+		
+		<!--BOOTSTRAP JS-->
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+		
+		<!--BOOTSTRAP ICONS-->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+		
+		<!--ANIMATE CSS-->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+		
+		<!--CSS-->
+		<link rel="stylesheet" href="css/geral.css" type="text/css" media="all" />
+	
+	</head>
+	<body class="bg-3" >
+		
+		<div id="jogo" class="h-100 w-100">
+			<div id="esq" class="w-50 h-100 opacity-50 position-absolute start-0 top-0 d-flex justify-content-center align-items-center" style="z-index:2">
+					<i id="s-esq" class="bi bi-chevron-compact-left d-none" style="font-size:4em"></i>
+			</div>
+			
+			<div id="dir" class="w-50 h-100 opacity-50 position-absolute start-50 top-0 d-flex justify-content-center align-items-center" style="z-index:2">
+					<i id="s-dir" class="bi bi-chevron-compact-right d-none" style="font-size:4em"></i>
+			</div>
+			
+			<div id="telajogo" class="d-block w-auto h-100 overflow-hidden color-5 bg-4 border border-dark position-relative top-50 start-50 translate-middle d-flex align-items-center">
+				
+				<p id="score" class="position-absolute top-0 start-0 color-3 fs-2 fw-bold m-2">Score:0</p>
+				
+					<div id="personagem" class="bg-1 position-absolute top-50 start-50 translate-middle my-auto" style="width:100px;height:100px;transition:.2s !important;transform:translate(-0%, -50%);">
+					
+					</div>
+					
+			</div>
+		</div>
+		<script src="js/anime.min.js"></script>
+		<script src="js/script.js"></script>
+	</body>
+</html>

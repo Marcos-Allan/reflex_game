@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0/">
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+			<title>Tela de Início</title>
+	
+		<!--BOOTSTRAP CSS-->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" type="text/css" media="all" />
+		
+		<!--BOOTSTRAP JS-->
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js">
+		
+		</script>
+		
+		<!--BOOTSTRAP ICONS-->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+		
+		<!--ANIMATE CSS-->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+		
+		<script type="text/javascript" charset="utf-8">
+		  
+		</script>
+
+		<!--CSS-->
+		<link rel="stylesheet" href="css/geral.css" type="text/css" media="all" />
+	
+	</head>
+	<body>
+		<div id="jogo" class="h-100 w-100">
+			
+
+			<div id="tela-P" class="d-flex justify-content-center align-items-center flex-column w-100 h-100 overflow-hidden color-5 bg-2">
+				
+				<p class="position-absolute start-0 top-0 mt-2 ms-2 fs-2 color-4 text-uppercase">
+				Pontuação: <span id="score" class="pts"></span>
+				</p>
+				
+				<div style="width:32px;height:32px" class="icn rounded border border-light border-3" src="" alt=""></div>
+				
+				<p id="redirect" class="btn mb-4 text-uppercase fs-1 color-5">começar</p>
+				
+				<i class="ljj bi bi-shop position-absolute top-0 end-0 mt-2 me-2 fs-1 color-4"></i>
+				
+				<div id="dcs" class="w-auto d-flex justify-content-center align-items-center position-absolute bottom-0 mb-4">
+				
+					<i class="bi bi-caret-left fs-1 color-4"></i>
+				
+					<div id="txt" class="p-2 rounded fs-6 bg-1 color-5">
+					teste e melhores seus reflexos faça o seu melhor recorde
+					</div>
+				
+					<i class="bi bi-caret-right fs-1 color-4"></i>
+				</div>
+			
+			</div>
+		</div>
+	<script src="js/anime.min.js"></script>
+	<script>
+	
+	anime({
+			targets: '.icn',
+			translateX: 40,
+			direction: 'alternate',
+			loop: true,
+			easing: 'easeInOutSine'
+			});
+	let btn = document.querySelector('#redirect')
+	
+	let score=window.document.querySelector("#score")
+	let pts = localStorage.getItem("pontos") ?  localStorage.getItem("pontos") : 0;
+	score.innerText=pts
+	//console.log(pts)
+	
+	let toque=new Audio("./sounds/click.mp3")
+	
+	btn.addEventListener('click', animate)
+	
+	function animate() {
+		
+		toque.play()
+		
+		btn.style.animation = "backOutDown"
+		btn.style.animationDuration = "1.7s"
+		btn.style.animationPlayState = "running"
+		localStorage.setItem("playu","2");
+		
+		setTimeout(function(){
+			window.location.replace("jogo.html")
+		},1500)
+		
+		setTimeout(function() {
+			btn.style.animation = ""
+			btn.style.animationDuration = ""
+			btn.style.animationPlayState = ""
+		}, 1700)
+	}
+	
+		let lojin= window.document.querySelector(".ljj")
+			lojin.addEventListener("click",function(){
+			toque.play()
+			setTimeout(function(){
+				window.location.replace("shop.html")
+			},200)
+		})
+		let u=document.querySelector('.icn')
+		let ch= localStorage.getItem("per")
+		if(ch!==""){
+		u.style.backgroundSize="cover"
+		u.style.backgroundImage=`url('${ch}')`
+		}if(ch==""){
+		  u.style.backgroundColor="var(--cor1)"
+		}
+	</script>
+	</body>
+</html>

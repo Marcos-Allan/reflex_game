@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0/">
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<title>Shop</title>
+		
+		<!--BOOTSTRAP CSS-->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" type="text/css" media="all" />
+		
+		<!--BOOTSTRAP JS-->
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+		
+		<!--BOOTSTRAP ICONS-->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+		
+		<!--ANIMATE CSS-->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+		
+		<link rel="stylesheet" href="css/geral.css" type="text/css" media="all" />
+	
+	</head>
+	<body>
+		<div class="w-100 h-auto d-flex bg-gd justify-content-around align-items-center flex-wrap bg-fd">
+			
+			<i id="dre" class="position-fixed end-0 top-0 fs-2 bi bi-arrow-return-left gd bg-transparent text-white m-1"></i>
+			
+			<div class="w-25 m-4">
+				<img src="images/enderman.jpg" alt="" class="per w-100 h-100 rounded border border-light border-3"/>
+			</div>
+			<div class="w-25 m-4">
+				<img src="images/steve.jpg" alt="" class="per w-100 h-100 rounded border border-light border-3"/>
+			</div>
+			<div class="w-25 m-4">
+				<img src="images/skeleton.jpg" alt="" class="per w-100 h-100 rounded border border-light border-3"/>
+			</div>
+			<div class="w-25 m-4">
+				<img src="images/zombie.jpg" alt="" class="per w-100 h-100 rounded border border-light border-3"/>
+			</div>
+			<div class="w-25 m-4">
+				<img src="images/creeper.jpg" alt="" class="per w-100 h-100 rounded border border-light border-3"/>
+			</div>
+			<div class="w-25 m-4">
+				<img src="images/sheep.jpg" alt="" class="per w-100 h-100 rounded border border-light border-3"/>
+			</div>
+			<div class="w-25 m-4">
+				<img src="images/pig.jpg" alt="" class="per w-100 h-100 rounded border border-light border-3"/>
+			</div>
+			<div class="w-25 m-4">
+				<img src="images/villager.jpg" alt="" class="per w-100 h-100 rounded border border-light border-3"/>
+			</div>
+			<div class="w-25 m-4">
+				<img src="images/zombiepigman.jpg" alt="" class="per w-100 h-100 rounded border border-light border-3"/>
+			</div>
+			<div class="w-25 m-4">
+				<img src="images/blaze.jpg" alt="" class="per w-100 h-100 rounded border border-light border-3"/>
+			</div>
+			<div class="w-25 m-4">
+				<img src="images/cow.jpg" alt="" class="per w-100 h-100 rounded border border-light border-3"/>
+			</div>
+			<div class="w-25 m-4">
+				<img src="images/spider.jpg" alt="" class="per w-100 h-100 rounded border border-light border-3"/>
+			</div>
+			<div class="w-25 m-4">
+				<img src="images/slime.jpg" alt="" class="per w-100 h-100 rounded border border-light border-3"/>
+			</div>
+			<div class="w-25 m-4">
+				<img src="images/witherskeleton.jpg" alt="" class="per w-100 h-100 rounded border border-light border-3"/>
+			</div>
+			<div class="w-25 m-4">
+				<img src="images/alex.jpg" alt="" class="per w-100 h-100 rounded border border-light border-3"/>
+			</div>
+			<div class="w-25 m-4">
+				<img src="images/magmacube.jpg" alt="" class="per w-100 h-100 rounded border border-light border-3"/>
+			</div>
+			<div class="w-25 m-4">
+				<img src="images/strader.jpg" alt="" class="per w-100 h-100 rounded border border-light border-3"/>
+			</div>
+			<div class="w-25 m-4">
+				<img src="images/drowned.jpg" alt="" class="per w-100 h-100 rounded border border-light border-3"/>
+			</div>
+			<div class="w-25 m-4">
+				<img src="images/desertzombie.jpg" alt="" class="per w-100 h-100 rounded border border-light border-3"/>
+			</div>
+			<div class="w-25 m-4">
+				<img src="images/technoblade.jpg" alt="" class="per w-100 h-100 rounded border border-light border-3"/>
+			</div>
+			
+		</div>
+	<script src="js/anime.min.js"></script>
+	<script>
+		let toque=new Audio("./sounds/click.mp3")
+		
+		let per=[...document.querySelectorAll(".per")]
+		per.map((el)=>{
+			el.classList.add("escr")
+			
+			el.addEventListener("click",(e)=>{
+				toque.play()
+				per.map((elt)=>{
+					elt.classList.remove("esc")
+					elt.classList.add("escr")
+				})
+				e.target.classList.remove("escr")
+				e.target.classList.add("esc")
+				anime({
+					targets: '.esc',
+					translateY: -40,
+					loop: false,
+					easing: 'easeInOutSine',
+					duration: 500
+				});
+				anime({
+					targets: '.escr',
+					translateY: 0,
+					loop: false,
+					easing: 'easeInOutSine'
+				});
+				localStorage.setItem("per",e.target.src)
+				let ch= localStorage.getItem("per")
+				//console.log("url ('"+ch+"')")
+			})
+		})
+		let dre=document.querySelector("#dre")
+		dre.addEventListener("click",()=>{
+			toque.play()
+			setTimeout(function(){
+				window.location.replace("index.html")
+			},200)
+		})
+	</script>
+	</body>
+</html>
